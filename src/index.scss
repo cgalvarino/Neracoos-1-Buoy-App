@@ -29,6 +29,20 @@ $theme-colors: (
   "danger": $danger
 );
 $font-family-base: Helvetica, Arial, sans-serif;
+$grid-gutter-width: 1.25rem;
+$spacers: (
+  0: 0,
+  1: 0.25rem,
+  2: 0.50rem,
+  3: 0.75rem,
+  4: 1.00rem,
+  5: 1.25rem,     // 20px
+  6: 1.50rem,
+  7: 1.75rem,
+  8: 2.00rem,
+  9: 2.25rem,
+  10: 2.50rem     // 40px
+);
 
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
 @import "~bootstrap/scss/variables";
@@ -40,10 +54,10 @@ $font-family-base: Helvetica, Arial, sans-serif;
 @import "~bootstrap/scss/containers";
 @import "~bootstrap/scss/grid";
 
-body {
-  margin: 0;
-  padding: 0;
-}
+// body {
+//   margin: 0;
+//   padding: 0;
+// }
 
 // ========== TYPOGRAPHY START ========== 
 h1, h2, h3 {
@@ -91,45 +105,51 @@ strong {
 }
 // ========== TYPOGRAPHY END ========== 
 
-.App .alert-blue {
-  color: $blue;
+.navbar-brand {
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5rem;  
 }
 
-.App .navbar-brand .nav-link,
-.App .nav-tabs .nav-item {
-  color: $blue;
-}
+// .App .alert-blue {
+//   color: $blue;
+// }
 
-nav.navbar {
-  margin-bottom: 1rem;
+// .App .navbar-brand .nav-link,
+// .App .nav-tabs .nav-item {
+//   color: $blue;
+// }
 
-  .dropdown-menu {
-    background-color: white;
-  }
-  .navbar-brand > img {
-    height: 30px;
-  }
+// nav.navbar {
+//   // margin-bottom: 1rem;
 
-  a.nav-link {
-    color: rgba(255, 255, 255, 0.55);
+//   .dropdown-menu {
+//     // background-color: white;
+//   }
+//   .navbar-brand > img {
+//     // height: 30px;
+//   }
 
-    &.active {
-      color: white;
-    }
+//   a.nav-link {
+//     color: rgba(255, 255, 255, 0.55);
 
-    &.dropdown-item {
-      color: $blue;
-    }
+//     &.active {
+//       color: white;
+//     }
 
-    &.dropdown-toggle.show {
-      color: rgba(255, 255, 255, 0.739);
-    }
-  }
-}
+//     &.dropdown-item {
+//       // color: $blue;
+//     }
 
-.navbar-dark .navbar-nav .dropdown-menu .nav-link:hover {
-  color: black;
-}
+//     &.dropdown-toggle.show {
+//       color: rgba(255, 255, 255, 0.739);
+//     }
+//   }
+// }
+
+// .navbar-dark .navbar-nav .dropdown-menu .nav-link:hover {
+//   color: black;
+// }
 
 .condition-tooltip > div > div {
   background-color: $blue;
@@ -148,11 +168,11 @@ nav.navbar {
   color: $green;
 }
 
-.map .ol-zoom {
-  top: 10px;
-  left: auto;
-  right: 10px;
-}
+// .map .ol-zoom {
+//   // top: 10px;
+//   // left: auto;
+//   // right: 10px;
+// }
 
 .legend-item {
   display: flex;
