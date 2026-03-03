@@ -10,7 +10,7 @@ $seaweed: rgba(23, 133, 150, 1);                // #178596
 $yellow: rgba(255, 205, 34, 1);                 // #FFCD22
 $bootstrap-red: rgba(220, 53, 69, 1);           // #DC3545
 
-// MAP COLORS TO BOOTSTRAP
+// THEME
 $primary: $blue;
 $secondary: $black;
 $info: $seaweed;
@@ -18,9 +18,9 @@ $success: $green;
 $warning: $yellow;
 $danger: $bootstrap-red;
 
-// THEME
 $theme-colors: (
   "orange": $orange,
+  "white": $white,
   "primary": $primary,
   "secondary": $secondary,
   "info": $info, 
@@ -53,11 +53,6 @@ $spacers: (
 @import "~bootstrap/scss/images";
 @import "~bootstrap/scss/containers";
 @import "~bootstrap/scss/grid";
-
-// body {
-//   margin: 0;
-//   padding: 0;
-// }
 
 // ========== TYPOGRAPHY START ========== 
 h1, h2, h3 {
@@ -103,53 +98,64 @@ strong {
   font-size: 0.875rem;
   line-height: 1.25rem;
 }
+
+a {
+font-weight: 400;
+font-size: 1rem;
+line-height: 1.5rem;
+text-decoration-line: underline;
+color: $primary;
+}
 // ========== TYPOGRAPHY END ========== 
 
-.navbar-brand {
+// =========== NAVBAR START =========== 
+.navbar .navbar-brand {
   font-weight: 400;
   font-size: 1rem;
   line-height: 1.5rem;  
+  color: $white;
 }
 
-// .App .alert-blue {
-//   color: $blue;
-// }
+.navbar .nav-link {
+  color: $white;
+  opacity: 0.55;
+}
 
-// .App .navbar-brand .nav-link,
-// .App .nav-tabs .nav-item {
-//   color: $blue;
-// }
+.navbar .nav-link:hover {
+  opacity: 1.00;
+}
 
-// nav.navbar {
-//   // margin-bottom: 1rem;
+.dropdown-menu {
+  background-color: $white;
+  border-width: 1px;
+  border-color: $primary;
+}
 
-//   .dropdown-menu {
-//     // background-color: white;
-//   }
-//   .navbar-brand > img {
-//     // height: 30px;
-//   }
+.navbar .dropdown-menu .dropdown-item {
+  color: $primary;
+  opacity: 0.55;
+}
+.navbar .dropdown-menu .dropdown-item:hover {
+  opacity: 1.00;
+  color: $white;
+}
+// =========== NAVBAR END =========== 
 
-//   a.nav-link {
-//     color: rgba(255, 255, 255, 0.55);
+// ======= PLATFORM MAP START ======= 
+.platform-map {
+    min-height: 40vh;
 
-//     &.active {
-//       color: white;
-//     }
+  @include media-breakpoint-up(md){
+    min-height: 520px;
+  }  
+}
+// ======= PLATFORM MAP END ======= 
 
-//     &.dropdown-item {
-//       // color: $blue;
-//     }
-
-//     &.dropdown-toggle.show {
-//       color: rgba(255, 255, 255, 0.739);
-//     }
-//   }
-// }
-
-// .navbar-dark .navbar-nav .dropdown-menu .nav-link:hover {
-//   color: black;
-// }
+//========== SUPERLATIVES START ==========
+.superlative-header {
+  background-color: rgba($secondary, 0.05);
+}
+//========== SUPERLATIVES END ==========
 
 .condition-tooltip > div > div {
   background-color: $blue;
@@ -168,11 +174,11 @@ strong {
   color: $green;
 }
 
-// .map .ol-zoom {
-//   // top: 10px;
-//   // left: auto;
-//   // right: 10px;
-// }
+.map .ol-zoom {
+  top: 10px;
+  left: auto;
+  right: 10px;
+}
 
 .legend-item {
   display: flex;
