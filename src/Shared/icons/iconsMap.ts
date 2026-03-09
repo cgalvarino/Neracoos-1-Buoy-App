@@ -1,0 +1,36 @@
+/**
+ *  Centralized FontAwesome icon file. Extend or limit the icons used in the 
+ *  project by importing the new icon to be used and adjusting the exported 
+ *  icon map below.
+*/
+
+import {
+    IconDefinition,
+    faInfoCircle, 
+    faExternalLinkAlt, 
+    faExpand,
+    faLocationArrow,
+    faUpRightAndDownLeftFromCenter,
+    faDownLeftAndUpRightToCenter,
+    faArrowUpFromBracket,
+    faTriangleExclamation,
+    faArrowLeft,
+    faArrowRight,
+    faArrowUp,
+    faArrowDown,
+    faChartLine,
+    faCircleInfo
+} from "@fortawesome/free-solid-svg-icons"
+
+// Map the icons here
+export const faIcons = {
+    infoCircleIcon: faInfoCircle,
+    externalLinkAltIcon: faExternalLinkAlt,
+    expandIcon: faExpand
+} as const // read only
+
+// Types for the abstracted component wrapper
+export type faIcon = {
+    [key: string]: IconDefinition;
+};
+export type iconName = keyof typeof faIcons;

@@ -1,8 +1,9 @@
 /**
  * Show more info about a platform
  */
-import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+// import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons"
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import Icon  from "Shared/icons/iconComponent"
 import type { Point } from "geojson"
 import { useEffect, useState } from "react"
 import Dropdown from "react-bootstrap/Dropdown"
@@ -35,7 +36,8 @@ export function ErddapMoreInfoDropdown({ platform }: UsePlatformRenderProps) {
           key={`dynamic-link-#${index}`}
         >
           {link.title}
-          <FontAwesomeIcon icon={faExternalLinkAlt} style={{ width: "12px", marginLeft: ".5rem" }} />
+          {/* <FontAwesomeIcon icon={faExternalLinkAlt} style={{ width: "12px", marginLeft: ".5rem" }} /> */}
+          <Icon iconName="externalLinkAltIcon" className="fa-xs ms-2" />
         </a>
       ))
       setDynamicLinks(links)
@@ -60,7 +62,8 @@ export function ErddapMoreInfoDropdown({ platform }: UsePlatformRenderProps) {
           role="menuitem"
         >
           Marine Forecast
-          <FontAwesomeIcon icon={faExternalLinkAlt} style={{ width: "12px", marginLeft: ".5rem" }} />
+          {/* <FontAwesomeIcon icon={faExternalLinkAlt} style={{ width: "12px", marginLeft: ".5rem" }} /> */}
+          <Icon iconName="externalLinkAltIcon" className="fa-xs ms-2" />
         </a>
         <a
           className="dropdown-item nav-item"
@@ -71,7 +74,8 @@ export function ErddapMoreInfoDropdown({ platform }: UsePlatformRenderProps) {
           role="menuitem"
         >
           Tides
-          <FontAwesomeIcon icon={faExternalLinkAlt} style={{ width: "12px", marginLeft: ".5rem" }} />
+          <Icon iconName="externalLinkAltIcon" className="fa-xs ms-2" />
+          {/* <FontAwesomeIcon icon={faExternalLinkAlt} style={{ width: "12px", marginLeft: ".5rem" }} /> */}
         </a>
       </Dropdown.Menu>
     </Dropdown>
