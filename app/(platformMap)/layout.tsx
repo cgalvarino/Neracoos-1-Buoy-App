@@ -44,7 +44,7 @@ export default function Layout({
 
   return (
     <React.Fragment>
-      <Row className="align-items-stretch mx-5 mx-md-10">
+      <Row className="align-items-stretch mx-5 mx-md-10 mt-2 mt-md-5">
         <Col xs={12} md={6} className="ps-0 pe-0 pe-md-5">
           <ErddapMap
             // height={params.regionId ? "80vh" : height}
@@ -55,9 +55,10 @@ export default function Layout({
           {sidebar}
           {belowMap ?? <React.Fragment>{belowMap}</React.Fragment>}
         </Col>
+        <Col xs={12} md={12} className="px-0">
+          {(isPlatformView && isClient && bottom) ?? <Row>{bottom}</Row>}
+        </Col>
       </Row>
-
-      {(isPlatformView && isClient && bottom) ?? <Row>{bottom}</Row>}
     </React.Fragment>
   )
 }

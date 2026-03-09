@@ -22,6 +22,7 @@ import { usePlatforms } from "../hooks/buoyBarn"
 import { PlatformFeature, PlatformTimeSeries } from "../types"
 import { conditions } from "../utils/conditions"
 import { platformName } from "../utils/platformName"
+import Icon from "Shared/icons/iconComponent"
 
 const waveHeight = new Set(conditions.waveHeight)
 const windSpeed = new Set(conditions.windSpeed)
@@ -107,8 +108,9 @@ export const ShowSuperlatives: React.FunctionComponent<ShowSuperlativesProps> = 
   }, [platforms, searchStartTime])
   return (
     <Card>
-      <Card.Header className="d-flex superlative-header">
-        <h3 className="d-flex align-items-center m-0">Top Wind & Waves - All Regions</h3>
+      <Card.Header className="d-flex flex-row align-items-center superlative-header">
+        <h3 className="d-flex m-0">Top Wind & Waves - All Regions</h3>
+        <Icon iconName="infoIcon" className="d-flex ms-2"/>
       </Card.Header>
 
       <Card.Body>

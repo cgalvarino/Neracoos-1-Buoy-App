@@ -26,7 +26,8 @@ import {
 export const faIcons = {
     infoCircleIcon: faInfoCircle,
     externalLinkAltIcon: faExternalLinkAlt,
-    expandIcon: faExpand
+    expandIcon: faExpand,
+    infoIcon: faCircleInfo
 } as const // read only
 
 // Types for the abstracted component wrapper
