@@ -30,8 +30,6 @@ export interface Props {
   boundingBox?: BoundingBox | null
   //  Platform to highlight
   platformId?: string
-  // Height to adjust map to match sidebar
-  height?: number | string
   // Already filtered platforms
   platforms?: PlatformFeature[]
 }
@@ -162,15 +160,8 @@ export const ErddapMapBase: React.FC<BaseProps> = ({ platforms, platformId }: Ba
     }
   }
 
-  // // Make sure the height of the map gets updated when jumping
-  // // from home to platform view
-  // useLayoutEffect(() => {
-  //   mapRef?.current?.ol.updateSize()
-  // }, [height])
-
   const { oldPlatforms, filteredPlatforms, selectedPlatforms } = filterPlatforms(platforms, platformId)
   return (
-    // <RMap ref={mapRef} className="map" initial={initial} view={[view || initial, setView]} height={height}>
     <RMap ref={mapRef} className="platform-map" initial={initial} view={[view || initial, setView]} height="100%">
       <EsriOceanBasemapLayer />
       <EsriOceanReferenceLayer />
@@ -191,7 +182,6 @@ export const ErddapMapBase: React.FC<BaseProps> = ({ platforms, platformId }: Ba
 /**
  * Map that is focused on the Gulf of Maine with the selected platform highlighted
  */
-// export const ErddapMap: React.FC<Props> = ({ platformId, height, platforms }: Props) => {
 export const ErddapMap: React.FC<Props> = ({ platformId, platforms }: Props) => {
   const { isLoading, data } = usePlatforms()
   const [isClient, setIsClient] = useState(false)
@@ -201,7 +191,6 @@ export const ErddapMap: React.FC<Props> = ({ platformId, platforms }: Props) => 
   }, [])
 
   if (data?.features && isClient) {
-    // return <ErddapMapBase platforms={platforms ?? data?.features} platformId={platformId} height={height} />
     return <ErddapMapBase platforms={platforms ?? data?.features} platformId={platformId} />
   }
   return null

@@ -14,7 +14,6 @@ export class Temperature extends DataTypeConversion {
     public data_type: string,
     public display_name: string,
   ) {
-    // super(data_type, display_name, "C", "C", "F", "Celsius", "Fahrenheit")
     super(data_type, display_name, "C", "C", "F", "°C", "°F")
   }
 }

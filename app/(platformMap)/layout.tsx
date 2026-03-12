@@ -30,11 +30,6 @@ export default function Layout({
     setIsClient(true)
   }, [])
 
-  // // Quick update for landing page, but this will need dynamicism(sp?)
-  // if (height < 520) {
-  //   height = 520
-  // }
-
   //Removing warning in console re:Highcharts library defaultProps. Not an active warning for us--until this issues is solved on Highcharts' end, keep this to remove huge console error
   const error = console.error
   console.error = (...args: any) => {
@@ -47,7 +42,6 @@ export default function Layout({
       <Row className="align-items-stretch mx-5 mx-md-10 mt-2 mt-md-5">
         <Col xs={12} md={6} className="ps-0 pe-0 pe-md-5">
           <ErddapMap
-            // height={params.regionId ? "80vh" : height}
             {...(isPlatformView && { platformId })}
           />
         </Col>

@@ -48,7 +48,7 @@ const NeracoosNavBar = () => {
         {/* No need for media breakpoint, doesn't appear till md anyways */}
         <Navbar.Toggle className="me-3" />
 
-        <Navbar.Collapse className="justify-content-end">
+        <Navbar.Collapse className="justify-content-end ms-5">
           <Nav className="me-5 me-md-10">
             <RegionDropdown closeParent={close} />
             <Nav.Item>

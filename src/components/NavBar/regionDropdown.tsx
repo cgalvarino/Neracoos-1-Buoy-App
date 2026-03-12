@@ -19,14 +19,10 @@ export const NavLink = ({
 }) => {
   const pathname = usePathname()
 
-  // Necessary?
-  // const isActive = pathname.startsWith(href)
-
   return (
     <Link
       href={href}
       className="dropdown-item"
-      // className={isActive ? "nav-link dropdown-item btn" : "nav-link dropdown-item btn"} // classes stripped from scss
       onClick={onClick}
     >
       {children}
