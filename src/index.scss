@@ -7,16 +7,17 @@ $coastal-meadow: #2ab78f;
 $buoy-yellow: #ffcb22;
 $what-orange: #ffae6d;
 
-$blue: rgba(8, 61, 82, 1); // #083d52
-$black: rgba(33, 37, 41, 1); // #212529
-$white: rgba(255, 255, 255, 1); // #FFFFFF
-$orange: rgba(255, 174, 109, 1); // #FFAE6D
-$green: rgba(42, 183, 143, 1); // #2AB78F
-$seaweed: rgba(23, 133, 150, 1); // #178596
-$yellow: rgba(255, 205, 34, 1); // #FFCD22
-$bootstrap-red: rgba(220, 53, 69, 1); // #DC3545
+// DIG COLORS
+$blue: $neracoos-blue;
+$black: #212529;
+$white: #ffffff;
+$orange: $what-orange;
+$green: $coastal-meadow;
+$seaweed: $metallic-seaweed;
+$yellow: $buoy-yellow;
+$bootstrap-red: #dc3545;
 
-// MAP COLORS TO BOOTSTRAP
+// BS MAPPING
 $primary: $blue;
 $secondary: $black;
 $info: $seaweed;
