@@ -17,7 +17,8 @@ export const PlatformAlerts: React.FunctionComponent<Props> = ({ platform }) => 
   <React.Fragment>
     {platform.properties.alerts.map((alert, index) => (
       <Alert dismissible={true} key={index} color={alert.level.toLowerCase()}>
-        <span dangerouslySetInnerHTML={{ __html: alert.message }} />
+        {/* <span dangerouslySetInnerHTML={{ __html: alert.message }} /> */}
+        {alert.message}
       </Alert>
     ))}
   </React.Fragment>
