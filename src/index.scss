@@ -36,7 +36,7 @@ $theme-colors: (
   "danger": $danger,
 );
 
-$font-family-base: Helvetica, Arial, sans-serif;
+$font-family-base: "Montserrat", Arial, sans-serif;
 
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
 @import "~bootstrap/scss/variables";
@@ -50,29 +50,31 @@ $font-family-base: Helvetica, Arial, sans-serif;
 @import "~bootstrap/scss/grid";
 
 // ========== TYPOGRAPHY START ========== 
-h1, h2, h3 {
-  line-height: 1.875rem;
-}
 
 h1 {
   font-weight: 700;
-  font-size: 1.5rem;
+  font-size: 2rem;
+  line-height: 2.5rem;
   @include media-breakpoint-up(sm) {
-    font-size: 2rem;
-    line-height: 2.5rem;
+    font-size: 1.5rem;
+    line-height: 1.875rem;
   }
+}
+
+h2, h3 {
+  line-height: 1.875rem;
 }
 
 h2 {
   font-weight: 700;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   @include media-breakpoint-up(sm) {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
   }
 }
 
 h3 {
-  font-weight: 400;
+  font-weight: 600;
   font-size: 1.25rem;
 }
 
@@ -84,7 +86,15 @@ p {
 
 // Call this paragraph bold and caption bold
 strong {
-  font-weight: 700;
+  font-weight: 600;
+}
+
+a {
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  text-decoration: underline;
+  color: $blue;
 }
 
 // Custom class for the caption font
