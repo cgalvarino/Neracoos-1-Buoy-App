@@ -20,11 +20,11 @@ export default function RegionSidebar(props: { params: Promise<{ regionId: strin
   return (
     <div>
       <h2>Platforms in {region.name}</h2>
-      <div class="row mb-2">
-        <div class="col-6">
+      <div className="row mb-2">
+        <div className="col-6">
           <NextRegion region={region} offset={-1}/>
         </div>
-        <div class="col-6 text-end">
+        <div className="col-6 text-end">
           <NextRegion region={region} offset={1}/>
         </div>
       </div>
