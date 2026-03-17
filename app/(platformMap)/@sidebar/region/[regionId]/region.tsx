@@ -13,7 +13,7 @@ export function RegionList({ region }: { region: Region }) {
 export function NextRegion({ region, offset }: { region: Region; offset: Number }) {
   let regionIdx = regionList.findIndex((r) => r.slug === region.slug)
   if (regionIdx < 0) {
-    return <div/>
+    return <div />
   }
 
   let newRegionIdx = (regionIdx + regionList.length + offset) % regionList.length

@@ -22,10 +22,10 @@ export default function RegionSidebar(props: { params: Promise<{ regionId: strin
       <h2>Platforms in {region.name}</h2>
       <div className="row mb-2">
         <div className="col-6">
-          <NextRegion region={region} offset={-1}/>
+          <NextRegion region={region} offset={-1}/ >
         </div>
         <div className="col-6 text-end">
-          <NextRegion region={region} offset={1}/>
+          <NextRegion region={region} offset={1}/ >
         </div>
       </div>
       <DehydratedPlatforms>
