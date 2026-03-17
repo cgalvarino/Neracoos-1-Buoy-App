@@ -4,14 +4,14 @@ import { DehydratedPlatforms } from "Features/ERDDAP/hooks/DehydrateComponent"
 import { regionList } from "Shared/constants"
 import { Region } from "Shared/regions"
 
-import { RegionList } from "./region"
+import { RegionList, NextRegion } from "./region"
 import { useDecodedUrl } from "util/hooks"
 
 export default function RegionSidebar(props: { params: Promise<{ regionId: string }> }) {
   const params = use(props.params)
   const regionId = useDecodedUrl(params.regionId)
 
-  let region: Region | undefined = regionList.find((r) => r.slug === regionId)
+ let region: Region | undefined = regionList.find((r) => r.slug === regionId)
 
   if (typeof region === "undefined") {
     return null
@@ -20,6 +20,14 @@ export default function RegionSidebar(props: { params: Promise<{ regionId: strin
   return (
     <div>
       <h2>Platforms in {region.name}</h2>
+      <div class="row mb-2">
+        <div class="col-6">
+          <NextRegion region={region} offset={-1}/>
+        </div>
+        <div class="col-6 text-end">
+          <NextRegion region={region} offset={1}/>
+        </div>
+      </div>
       <DehydratedPlatforms>
         <RegionList region={region} />
       </DehydratedPlatforms>
