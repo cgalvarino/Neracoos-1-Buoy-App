@@ -11,7 +11,7 @@ export default function RegionSidebar(props: { params: Promise<{ regionId: strin
   const params = use(props.params)
   const regionId = useDecodedUrl(params.regionId)
 
- let region: Region | undefined = regionList.find((r) => r.slug === regionId)
+  let region: Region | undefined = regionList.find((r) => r.slug === regionId)
 
   if (typeof region === "undefined") {
     return null

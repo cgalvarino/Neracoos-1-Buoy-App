@@ -10,7 +10,7 @@ export function RegionList({ region }: { region: Region }) {
   return <ErddapPlatformList boundingBox={region.bbox} />
 }
 
-export function NextRegion({ region, offset }: { region: Region; offset : Number }) {
+export function NextRegion({ region, offset }: { region: Region; offset: Number }) {
   let regionIdx = regionList.findIndex((r) => r.slug === region.slug)
   if (regionIdx < 0) {
     return <div/>
