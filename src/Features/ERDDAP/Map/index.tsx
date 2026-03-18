@@ -9,7 +9,7 @@ import { useRouter } from "@bprogress/next"
 import GeoJSON from "ol/format/GeoJSON"
 import { fromLonLat, transformExtent } from "ol/proj"
 import Button from "react-bootstrap/Button"
-import { RFeature, RLayerVector, RMap, RPopup, RStyle } from "rlayers"
+import { RFeature, RLayerVector, RMap, RPopup, RStyle, RControl, RGeolocation } from "rlayers"
 
 import { colors } from "Shared/colors"
 import { paths } from "Shared/constants"
@@ -23,7 +23,7 @@ import { useParams } from "next/navigation"
 import { usePlatforms } from "../hooks"
 import { PlatformFeature } from "../types"
 import { platformName } from "../utils/platformName"
-import { Feature } from "ol"
+import { Feature, Geolocation as OLGeoLoc } from "ol"
 
 export interface Props {
   // Bounding box for fitting to a region
@@ -183,6 +183,20 @@ export const ErddapMapBase: React.FC<BaseProps> = ({ platforms, platformId, heig
       {!!selectedPlatforms.length && (
         <PlatformLayer key={selectedPlatforms[0].id} platform={selectedPlatforms[0]} selected={true} old={false} />
       )}
+
+      <RGeolocation 
+        tracking={true}
+        onChange={() => console.log('changed')}
+      />
+
+      <RControl.RCustom className="ol-geolocate">
+        <button 
+          title="Geolocate"
+          onClick={() => console.dir('clicked')}
+        >
+          G
+        </button>
+      </RControl.RCustom>
     </RMap>
   )
 }
