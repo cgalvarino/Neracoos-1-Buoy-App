@@ -23,7 +23,7 @@ import { useParams } from "next/navigation"
 import { usePlatforms } from "../hooks"
 import { PlatformFeature } from "../types"
 import { platformName } from "../utils/platformName"
-import { Feature, Geolocation as OLGeoLoc } from "ol"
+import { Feature } from "ol"
 
 export interface Props {
   // Bounding box for fitting to a region
@@ -130,6 +130,7 @@ export const ErddapMapBase: React.FC<BaseProps> = ({ platforms, platformId, heig
   const params: { regionId?: string; platformId?: string } = useParams()
   const [view, setView] = useState<View>(initial)
   const path = usePathname()
+  const [geoLoc, setGeoLoc] = useState(null)
 
   // Check if the route was navigated to using the back button
   // const isBackButtonUsed = router.asPath !== router.pathname;
@@ -184,19 +185,35 @@ export const ErddapMapBase: React.FC<BaseProps> = ({ platforms, platformId, heig
         <PlatformLayer key={selectedPlatforms[0].id} platform={selectedPlatforms[0]} selected={true} old={false} />
       )}
 
-      <RGeolocation 
-        tracking={true}
-        onChange={() => console.log('changed')}
-      />
+      {typeof params.regionId === "undefined" && typeof platformId === "undefined" && (
+        <div>
+          <RGeolocation
+            tracking={true}
+            trackingOptions={{ enableHighAccuracy: true }}
+            onChange={(e) => {
+              setGeoLoc(e.target.getAccuracyGeometry())
+            }}
+          />
 
-      <RControl.RCustom className="ol-geolocate">
-        <button 
-          title="Geolocate"
-          onClick={() => console.dir('clicked')}
-        >
-          G
-        </button>
-      </RControl.RCustom>
+          <RControl.RCustom className="ol-geolocate">
+            <button
+              title="Geolocate"
+              onClick={() => {
+                if (geoLoc) {
+                  mapRef?.current?.ol.getView().fit(geoLoc, {
+                    duration: 250,
+                    maxZoom: 10,
+                  })
+                } else {
+                  alert("Please check that your brower can access your location and try again.")
+                }
+              }}
+            >
+              G
+            </button>
+          </RControl.RCustom>
+        </div>
+      )}
     </RMap>
   )
 }
