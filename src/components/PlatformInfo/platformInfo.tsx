@@ -48,12 +48,7 @@ export const PlatformInfoLite = ({ id }: { id: string }) => {
           <div>
             <PlatformAlerts platform={platform} />
             <ErddapPlatformInfoLite platform={platform} />
-            <ErddapObservationTable
-              platform={platform}
-              unitSystem={unitSystem}
-              laterThan={aDayAgo}
-              limit={2}
-            />
+            <ErddapObservationTable platform={platform} unitSystem={unitSystem} laterThan={aDayAgo} limit={2} />
           </div>
         </React.Fragment>
       )}
