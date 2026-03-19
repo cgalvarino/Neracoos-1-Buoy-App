@@ -48,6 +48,6 @@ test("Navigate speed", async ({ page, performance }) => {
 
   performance.sampleStart("Navigate-Platform")
   await page.getByRole("link", { name: "44007" }).click()
-  await expect(await page.getByText("Station 44007")).toBeVisible()
+  await expect(await page.getByText("Station 44007").last()).toBeVisible()
   performance.sampleEnd("Navigate-Platform")
 })
