@@ -105,12 +105,11 @@ export const PlatformLayer = ({ platform, selected, old = false }: PlatformLayer
       </RStyle.RStyle>
       <RFeature
         geometry={geometry}
-        properties={{platform: platform, url: url}}
+        properties={{ platform: platform, url: url }}
         onClick={useCallback(() => {
           router.push(url)
         }, [router, url])}
-      >
-      </RFeature>
+      ></RFeature>
     </RLayerVector>
   )
 }
@@ -136,7 +135,7 @@ export const ErddapMapBase: React.FC<BaseProps> = ({ platforms, platformId, heig
 
     // Access the underlying OpenLayers map object from the event
     const map = e.map
-    
+
     // Iterate through all features at the current pixel
     map.forEachFeatureAtPixel(e.pixel, (feature) => {
       features.push(feature)
@@ -151,7 +150,7 @@ export const ErddapMapBase: React.FC<BaseProps> = ({ platforms, platformId, heig
     } else {
       setHighlightedFeatures([])
       popup.current?.hide()
-    }    
+    }
   }, [])
 
   // Check if the route was navigated to using the back button
@@ -193,23 +192,24 @@ export const ErddapMapBase: React.FC<BaseProps> = ({ platforms, platformId, heig
   const { oldPlatforms, filteredPlatforms, selectedPlatforms } = filterPlatforms(platforms, platformId)
 
   return (
-    <RMap ref={mapRef} className="map" initial={initial} view={[view || initial, setView]} height={height} onPointerMove={onPointerMove}>
+    <RMap
+      ref={mapRef}
+      className="map"
+      initial={initial}
+      view={[view || initial, setView]}
+      height={height}
+      onPointerMove={onPointerMove}
+    >
       <EsriOceanBasemapLayer />
       <EsriOceanReferenceLayer />
 
       {highlightedFeatures.length > 0 && (
         <RLayerVector zIndex={10}>
-          <RStyle.RStyle/>
-          <RFeature 
-            feature={highlightedFeatures[0]}
-          >
+          <RStyle.RStyle />
+          <RFeature feature={highlightedFeatures[0]}>
             <RPopup ref={popup}>
-              <Button
-                variant="dark"
-                size="sm"
-                href={highlightedFeatures[0].get('url')}
-              >
-                {platformName(highlightedFeatures[0].get('platform'))}
+              <Button variant="dark" size="sm" href={highlightedFeatures[0].get("url")}>
+                {platformName(highlightedFeatures[0].get("platform"))}
               </Button>
             </RPopup>
           </RFeature>
